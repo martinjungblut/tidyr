@@ -24,7 +24,7 @@
               (source-dir (uiop:directory-exists-p (nth 0 parts)))
               (extension (nth 1 parts))
               (destination-dir (uiop:directory-exists-p (nth 2 parts))))
-        (if (and source-dir destination-dir)
+        (if (and (= (length parts) 3) source-dir destination-dir)
           (funcall callback source-dir extension destination-dir))))))
 
 (defun tidyr-main ()
