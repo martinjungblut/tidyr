@@ -5,5 +5,5 @@
   :type :program
   :move-here #P"./"
   :prologue-code '(require :ecl-quicklisp)
-  :epilogue-code '(tidyr-main))
+  :epilogue-code '(main))
 (quit)

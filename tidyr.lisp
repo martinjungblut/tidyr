@@ -29,7 +29,7 @@
     (error (e)
       (funcall on-error e))))
 
-(defun tidyr-main ()
+(defun main ()
   (loop
     (format t "Running...~&")
     (with-configuration-file-lines
@@ -37,9 +37,8 @@
         (format t "Read configuration line. Source: ~a Extension: ~a Destination: ~a~&" source-dir extension destination-dir)
         (dolist (source-fpath (find-files source-dir extension))
           (let ((destination-fpath (filepath-format destination-dir (filepath-only-filename source-fpath))))
-            (progn
-              (format t "~a -> ~a~&" source-fpath destination-fpath)
-              (uiop:rename-file-overwriting-target source-fpath destination-fpath)))))
+            (format t "~a -> ~a~&" source-fpath destination-fpath)
+            (uiop:rename-file-overwriting-target source-fpath destination-fpath))))
       (lambda (e)
         (format t "Error: ~a~&" e)))
     (finish-output nil)
